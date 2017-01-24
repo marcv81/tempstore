@@ -1,0 +1,7 @@
+__pycache__
+/.vscode/
+/venv/
+/datastore/
+/database/
+/datastore-test/
+/database-test/

@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Project</title>
+    </head>
+    <body>
+        <h1>Project</h1>
+        <h2>Project: {{ project }}</h2>
+        {% if versions %}
+        <ul>
+            {% for version in versions %}
+            <li>
+                <a href="{{ base_url }}/version/{{ project }}/{{ version.name }}">{{ project }} / {{ version.name }}</a>
+                ({{ version.date }})
+                {% if version.star %}
+                <a href="{{ base_url }}/admin/unstar/{{ project }}/{{ version.name }}">&#9733;</a>
+                {% else %}
+                <a href="{{ base_url }}/admin/star/{{ project }}/{{ version.name }}">&#9734;</a>
+                {% endif %}
+            </li>
+            {% endfor %}
+        </ul>
+        {% else %}
+        <p>No version</p>
+        {% endif %}
+        <h2>Links</h2>
+        <ul>
+            <li><a href="{{ base_url }}/">Home</a></li>
+        </ul>
+    </body>
+</html>
